@@ -64,9 +64,19 @@ class Issues {
   // Return the `login` property of the `user` property for the `user` that has
   // submitted the most issues
   get mostActiveUser() {
+    let userNames = issues.map(obj => obj.user.login);
+    let counters = {};
+    userNames.forEach(id => {
+      if (!counters.hasOwnProperty(id)) {
+        counters[id] = 0;
+      };
+      counters[id]++;
+    });
+    let activeUserNames = Object.keys(counters);
+    return activeUserNames.reduce((topUserName, userName) => topUserName =
+    counters[userName] > counters[topUserName] ? userName : topUserName);
   }
 }
-
 
 
 module.exports = Issues;
