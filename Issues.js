@@ -11,31 +11,40 @@ class Issues {
 
   // return an array containing each issues `id`
   get ids() {
+    return issues.map(obj => obj.id);
   }
 
   // return the total number of issues
   get numberOfIssues() {
+    return issues.length;
   }
 
   // return an array containing each issues `title`
   get titles() {
+    return issues.map(obj => obj.title);
   }
 
   // return an array containing the `login` property of the
   // `user` property for each issue. The array should not contain
   // any duplicate elements
   get users() {
+    let tmp = new Set(issues.map(obj => obj.user.login));
+    return [...tmp];
   }
 
   // return an array containing the `avatar_url` property of the
   // `user` property for each issue. The array should not contain
   // any duplicate elements
   get avatars() {
+    let tmp = new Set(issues.map(obj => obj.user.avatar_url));
+    return [...tmp];
   }
 
   // return an array containing all the `id` property of the `assignedIssue`
   // property for each issue with an `assignee` property that is not `null`
   get withAssignee() {
+    return issues.filter(obj => typeof obj.assignee === 'object')
+    .map(obj => obj.id);
   }
 
   // return an array containing all the `id` property of the `assignedIssue`
