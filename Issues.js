@@ -57,6 +57,7 @@ class Issues {
   // return the total number of comments for all the issues, based on the
   // `comments` property
   get totalComments() {
+    return issues.reduce((total, obj) => total + obj.comments, 0);
   }
 
   // Return the `login` property of the `user` property for the `user` that has
