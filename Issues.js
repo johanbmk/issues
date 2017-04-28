@@ -50,7 +50,8 @@ class Issues {
   // return an array containing all the `id` property of the `assignedIssue`
   // property for each issue with a `pull_request` property that is not `null`
   get withPullRequest() {
-    return issues.filter(obj => obj.pull_request !== undefined && obj.pull_request !== null)
+    return issues.filter(obj => obj.pull_request !== undefined
+      && obj.pull_request !== null)
     .map(obj => obj.id);
   }
 
