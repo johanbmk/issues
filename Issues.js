@@ -43,7 +43,7 @@ class Issues {
   // return an array containing all the `id` property of the `assignedIssue`
   // property for each issue with an `assignee` property that is not `null`
   get withAssignee() {
-    return issues.filter(obj => typeof obj.assignee === 'object')
+    return issues.filter(obj => obj.assignee !== null)
     .map(obj => obj.id);
   }
 
@@ -62,5 +62,7 @@ class Issues {
   get mostActiveUser() {
   }
 }
+
+
 
 module.exports = Issues;
